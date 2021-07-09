@@ -1,0 +1,23 @@
+{
+  "name": "motivate",
+  "version": "1.0.0",
+  "description": "project to get motivated for the gym or in life",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkepassport39/motivate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkepassport39/motivate/issues"
+  },
+  "homepage": "https://github.com/tkepassport39/motivate#readme",
+  "dependencies": {
+    "yargs": "^17.0.1"
+  }
+}

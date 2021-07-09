@@ -9,4 +9,4 @@ Get a motivational quote for the day to display when opening a terminal
 ### For next:
 * keep a quote for the day
 * more quotes
-* how to add quotes -switch to append quotes
+* how to add quotes
