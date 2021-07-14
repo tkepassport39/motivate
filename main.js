@@ -14,13 +14,6 @@ const finalRandomNum = getRandomInt(quoteLength)
 
 const quoteValue = quotes[finalRandomNum]
 
-//console.log(quotes.length)
-//console.log(`"${quoteValue.quote}" - ${quoteValue.author}`)
-
-//console.log(process.argv)
-
-//console.log(yargs.argv)
-
 yargs.command({
     command: 'add',
     describe: 'add a quote',
@@ -47,7 +40,7 @@ yargs.command({
         console.log(quotes)
 
         const jsonString = JSON.stringify(quotes, null, 2)
-        fs.writeFileSync('./quotes2.json', jsonString)
+        fs.writeFileSync('./quotes.json', jsonString)
     }
 })
 .parse()
