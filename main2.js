@@ -20,6 +20,7 @@ const finalRandomNum = getRandomInt(quoteLength)
 // grab the random quote from list
 const quoteValue = quotes[finalRandomNum]
 
+// debug
 //console.log(quoteValue)
 
 if (argv.quote && argv.author) {
