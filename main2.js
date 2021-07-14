@@ -15,9 +15,22 @@ function getRandomInt(max) {
 const quoteLength = quotes.length
 
 // generate a random number from total quote count
-const finalRandomNum = getRandomInt(quoteLength)
+//const finalRandomNum = getRandomInt(quoteLength)
 
-// grab the random quote from list
+// get today's date
+const d = new Date()
+const dayNum = d.getDate()
+
+// debug
+// console.log(`daynum : ${dayNum}`)
+// console.log(`quoteLength : ${quoteLength}`)
+
+// use modulus(mod) to generate a number for the quote it will get for the day
+const finalRandomNum = dayNum % quoteLength
+
+console.log(finalRandomNum)
+
+// grab the random quote from list for the day
 const quoteValue = quotes[finalRandomNum]
 
 // debug
@@ -35,10 +48,11 @@ if (argv.quote && argv.author) {
     console.log(quotes)
 
     const jsonString = JSON.stringify(quotes, null, 2)
-    fs.writeFileSync('./quotes2.json', jsonString)
+    fs.writeFileSync('./quotes.json', jsonString)
 } 
 else {
     // automatically get a quote for the day
+
     console.log(`Quote: ${quoteValue.quote}`)
     console.log(`Author: ${quoteValue.author}`)
 }
