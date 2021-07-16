@@ -1,47 +1,50 @@
+#!/usr/bin/env node
+const yargs = require('yargs/yargs')
+const { hideBin } = require('yargs/helpers')
 const quotes = require('./quotes.json')
-const yargs = require('yargs');
-const { string } = require('yargs');
-const { argv } = require('process');
 const fs = require('fs');
 
+const argv = yargs(hideBin(process.argv)).argv
+
+// generate a random number
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
+// get length # of quote
 const quoteLength = quotes.length
 
-const finalRandomNum = getRandomInt(quoteLength)
+// generate a random number from total quote count
+//const finalRandomNum = getRandomInt(quoteLength)
 
+// get today's date
+const d = new Date()
+const dayNum = d.getDate()
+
+// use modulus(mod) to generate a number for the quote it will get for the day
+const finalRandomNum = dayNum % quoteLength
+
+// grab the random quote from list for the day
 const quoteValue = quotes[finalRandomNum]
 
-yargs.command({
-    command: 'add',
-    describe: 'add a quote',
-    builder: {
-        quote: {
-            describe: 'add a quote',
-            type: 'string'
-        },
-        author:{
-            describe: 'authors name',
-            type: 'string'
-        }
-    },
-    handler: function(argv){
-        console.log("\nAdding a quote!", argv.quote)
-        console.log("\nAdding an author!", argv.author)
 
-        const addQuote = {
-            quote : argv.quote,
-            author : argv.author
-        }
-
-        quotes.push(addQuote)
-        console.log(quotes)
-
-        const jsonString = JSON.stringify(quotes, null, 2)
-        fs.writeFileSync('./quotes.json', jsonString)
+if (argv.quote && argv.author) {
+    console.log(`quote = ${argv.quote}\nauthor = ${argv.author}`)
+    // add a quote to the list
+    const addQuote = {
+        quote : argv.quote,
+        author : argv.author
     }
-})
-.parse()
 
+    quotes.push(addQuote)
+    console.log(quotes)
+
+    const jsonString = JSON.stringify(quotes, null, 2)
+    fs.writeFileSync('./quotes.json', jsonString)
+} 
+else {
+    // automatically get a quote for the day
+
+    console.log(`"${quoteValue.quote}" 
+    \t-- ${quoteValue.author}`)
+}
