@@ -1,30 +1,38 @@
-[ 
-    {
-        "quote" : "If you truly love life, don’t waste time because time is what life is made of.",
-        "author" : "Bruce Lee"  
-    },
-    {
-        "quote" : "Be happy, but never satisfied.",
-        "author" : "Bruce Lee"
-    },
-    {
-        "quote" : "My principles are more important than the money or my title.",
-        "author" : "Muhammad Ali"
-    },
-    {
-        "quote" : "If we can’t help our family, who are we going to help?",
-        "author" : "Cristiano Ronaldo"
-    },
-    {
-        "quote" : "Do not let circumstances control you. You change your circumstances.",
-        "author" : "Jackie Chan"
-    },
-    {
-        "quote" : "You will continue to suffer if you have an emotional reaction to everything that is said to you. True power is sitting back and observing everything with logic. If words control you that means everyone else can control you. Breathe and allow things to pass.",
-        "author" : "Bruce Lee"
-    },
-    {
-        "quote" : "My only fault is that I don’t realize how great I really am.",
-        "author" : "Muhammad Ali"
-    }
+[
+  {
+    "quote": "If you truly love life, don’t waste time because time is what life is made of.",
+    "author": "Bruce Lee"
+  },
+  {
+    "quote": "Be happy, but never satisfied.",
+    "author": "Bruce Lee"
+  },
+  {
+    "quote": "My principles are more important than the money or my title.",
+    "author": "Muhammad Ali"
+  },
+  {
+    "quote": "If we can’t help our family, who are we going to help?",
+    "author": "Cristiano Ronaldo"
+  },
+  {
+    "quote": "Do not let circumstances control you. You change your circumstances.",
+    "author": "Jackie Chan"
+  },
+  {
+    "quote": "You will continue to suffer if you have an emotional reaction to everything that is said to you. True power is sitting back and observing everything with logic. If words control you that means everyone else can control you. Breathe and allow things to pass.",
+    "author": "Bruce Lee"
+  },
+  {
+    "quote": "My only fault is that I don’t realize how great I really am.",
+    "author": "Muhammad Ali"
+  },
+  {
+    "quote": "The secret of getting ahead is getting started.",
+    "author": "Mark Twain"
+  },
+  {
+    "quote": "Better to keep your mouth shut and appear stupid than to open it and remove all doubt.",
+    "author": "Mark Twain"
+  }
 ]
