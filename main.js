@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 const yargs = require('yargs/yargs')
+const readWriteQuote = require('./readWriteQuote')
 const { hideBin } = require('yargs/helpers')
-const quotes = require('./quotes.json')
-const fs = require('fs');
 
 const argv = yargs(hideBin(process.argv)).argv
 
@@ -10,6 +9,8 @@ const argv = yargs(hideBin(process.argv)).argv
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
+
+const quotes = readWriteQuote.getQuotes()
 
 // get length # of quote
 const quoteLength = quotes.length
@@ -30,17 +31,9 @@ const quoteValue = quotes[finalRandomNum]
 
 if (argv.quote && argv.author) {
     console.log(`quote = ${argv.quote}\nauthor = ${argv.author}`)
-    // add a quote to the list
-    const addQuote = {
-        quote : argv.quote,
-        author : argv.author
-    }
-
-    quotes.push(addQuote)
-    console.log(quotes)
-
-    const jsonString = JSON.stringify(quotes, null, 2)
-    fs.writeFileSync('./quotes.json', jsonString)
+    
+    readWriteQuote.addQuote(argv.quote, argv.author)
+    
 } 
 else {
     // automatically get a quote for the day
