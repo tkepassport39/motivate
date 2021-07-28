@@ -2,7 +2,9 @@ const quotes = require('./quotes.json')
 const fs = require('fs');
 
 function getQuotes () {
-    return quotes
+    
+    // returning a resolved promise
+    return Promise.resolve(quotes)
 }
 
 function addQuote (quote, author) {

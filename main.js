@@ -10,34 +10,36 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-const quotes = readWriteQuote.getQuotes()
+readWriteQuote.getQuotes().then(function (quotes) {
+    // get length # of quote
+    const quoteLength = quotes.length
 
-// get length # of quote
-const quoteLength = quotes.length
+    // generate a random number from total quote count
+    //const finalRandomNum = getRandomInt(quoteLength)
 
-// generate a random number from total quote count
-//const finalRandomNum = getRandomInt(quoteLength)
+    // get today's date
+    const d = new Date()
+    const dayNum = d.getDate()
 
-// get today's date
-const d = new Date()
-const dayNum = d.getDate()
+    // use modulus(mod) to generate a number for the quote it will get for the day
+    const finalRandomNum = dayNum % quoteLength
 
-// use modulus(mod) to generate a number for the quote it will get for the day
-const finalRandomNum = dayNum % quoteLength
-
-// grab the random quote from list for the day
-const quoteValue = quotes[finalRandomNum]
+    // grab the random quote from list for the day
+    const quoteValue = quotes[finalRandomNum]
 
 
-if (argv.quote && argv.author) {
-    console.log(`quote = ${argv.quote}\nauthor = ${argv.author}`)
-    
-    readWriteQuote.addQuote(argv.quote, argv.author)
-    
-} 
-else {
-    // automatically get a quote for the day
+    if (argv.quote && argv.author) {
+        console.log(`quote = ${argv.quote}\nauthor = ${argv.author}`)
+        
+        readWriteQuote.addQuote(argv.quote, argv.author)
+        
+    } 
+    else {
+        // automatically get a quote for the day
 
-    console.log(`"${quoteValue.quote}" 
-    \t-- ${quoteValue.author}`)
-}
+        console.log(`"${quoteValue.quote}" 
+        \t-- ${quoteValue.author}`)
+    }
+} )
+
+
