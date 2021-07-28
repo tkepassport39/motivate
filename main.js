@@ -32,6 +32,12 @@ readWriteQuote.getQuotes().then(function (quotes) {
         console.log(`quote = ${argv.quote}\nauthor = ${argv.author}`)
         
         readWriteQuote.addQuote(argv.quote, argv.author)
+        .then(function (){
+            // no need to run anything as nothing is returned
+        })
+        .catch(function (reject){
+            console.error(reject)
+        })
         
     } 
     else {
@@ -41,5 +47,6 @@ readWriteQuote.getQuotes().then(function (quotes) {
         \t-- ${quoteValue.author}`)
     }
 } )
+
 
 
