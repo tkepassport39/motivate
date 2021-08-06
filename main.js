@@ -10,7 +10,10 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-readWriteQuote.getQuotes().then(function (quotes) {
+async function quotes () {
+
+    const quotes = await readWriteQuote.getQuotes()
+
     // get length # of quote
     const quoteLength = quotes.length
 
@@ -31,22 +34,20 @@ readWriteQuote.getQuotes().then(function (quotes) {
     if (argv.quote && argv.author) {
         console.log(`quote = ${argv.quote}\nauthor = ${argv.author}`)
         
-        readWriteQuote.addQuote(argv.quote, argv.author)
-        .then(function (){
-            // no need to run anything as nothing is returned
-        })
-        .catch(function (reject){
-            console.error(reject)
-        })
+        try{
+            await readWriteQuote.addQuote(argv.quote, argv.author)
+        }
+        catch (err){
+            console.error(err)
+        }
         
     } 
     else {
         // automatically get a quote for the day
-
         console.log(`"${quoteValue.quote}" 
         \t-- ${quoteValue.author}`)
     }
-} )
+    
+}
 
-
-
+quotes()
